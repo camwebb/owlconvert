@@ -39,7 +39,7 @@ public class owlconvert {
 	try {
 	  // HELP
 	  if ((args[0].compareTo("-h") == 0) || 
-		  (args[0].compareTo("--helph") == 0) ||
+		  (args[0].compareTo("--help") == 0) ||
 		  (args.length != 2)) {
 		System.err.println(
 		   "\n  Usage: owlconvert  manchester|turtle|rdfxml  <owl infile>\n");
