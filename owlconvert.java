@@ -44,7 +44,7 @@ public class owlconvert {
 		  (args[0].compareTo("--help") == 0) ||
 		  (args.length != 2)) {
 		System.err.println(
-		   "\n  Usage: owlconvert  manchester|functional|turtle|rdfxml|krss  <owl infile>\n");
+        "\n  Usage: owlconvert  manchester|functional|turtle|rdfxml  <owl infile>\n"); // krss not working
 		System.exit(1);
 	  }
 		
