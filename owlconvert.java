@@ -33,6 +33,8 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.coode.owlapi.manchesterowlsyntax.ManchesterOWLSyntaxOntologyFormat;
 import org.coode.owlapi.turtle.TurtleOntologyFormat;
 import org.semanticweb.owlapi.io.RDFXMLOntologyFormat;
+import org.semanticweb.owlapi.io.OWLFunctionalSyntaxOntologyFormat;
+import de.uulm.ecs.ai.owlapi.krssparser.KRSS2OntologyFormat;
 
 public class owlconvert {
   public static void main(String[] args) {
@@ -42,7 +44,7 @@ public class owlconvert {
 		  (args[0].compareTo("--help") == 0) ||
 		  (args.length != 2)) {
 		System.err.println(
-		   "\n  Usage: owlconvert  manchester|turtle|rdfxml  <owl infile>\n");
+		   "\n  Usage: owlconvert  manchester|functional|turtle|rdfxml|krss  <owl infile>\n");
 		System.exit(1);
 	  }
 		
@@ -89,6 +91,24 @@ public class owlconvert {
 		  new RDFXMLOntologyFormat();
 		if (format.isPrefixOWLOntologyFormat()) {
 		  myOut.copyPrefixesFrom( format.asPrefixOWLOntologyFormat() );
+		}
+		manager.saveOntology(myOWL, myOut, new SystemOutDocumentTarget());
+	  }
+
+	  else if (args[0].compareTo("functional") == 0) {
+		OWLFunctionalSyntaxOntologyFormat myOut = 
+		  new OWLFunctionalSyntaxOntologyFormat();
+		if (format.isPrefixOWLOntologyFormat()) {
+		  myOut.copyPrefixesFrom( format.asPrefixOWLOntologyFormat() );
+		}
+		manager.saveOntology(myOWL, myOut, new SystemOutDocumentTarget());
+	  }
+
+	  else if (args[0].compareTo("krss") == 0) {
+		KRSS2OntologyFormat myOut = 
+		  new KRSS2OntologyFormat();
+		if (format.isPrefixOWLOntologyFormat()) {
+		  // myOut.copyPrefixesFrom( format.asPrefixOWLOntologyFormat() );
 		}
 		manager.saveOntology(myOWL, myOut, new SystemOutDocumentTarget());
 	  }
