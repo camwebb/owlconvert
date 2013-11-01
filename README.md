@@ -11,7 +11,7 @@ close to zero java, so please be lenient!
 
 # Usage
 
-      $ owlconvert  manchester|turtle|rdfxml  <owl infile>
+      $ owlconvert  manchester|functional|turtle|rdfxml  <owl infile>
 
 sends to standard out.
 
